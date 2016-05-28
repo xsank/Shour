@@ -10,7 +10,9 @@ License: `MIT` (see LICENSE)
 
 结构图
 -------
-暂时空缺，后续补上  
+<div align="center">
+    <img src="https://raw.githubusercontent.com/xsank/Shour/master/doc/structure.png" alt="结构图" />
+</div>
 
 
 使用方式
