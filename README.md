@@ -11,7 +11,7 @@ License: `MIT` (see LICENSE)
 结构图
 -------
 <div align="center">
-    <img src="https://raw.githubusercontent.com/xsank/Shour/master/doc/structure.png" alt="结构图" />
+    <img src="https://raw.githubusercontent.com/xsank/Shour/master/doc/structure.jpg" alt="结构图" />
 </div>
 
 
