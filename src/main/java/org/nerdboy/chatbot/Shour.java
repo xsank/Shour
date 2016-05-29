@@ -1,7 +1,7 @@
 package org.nerdboy.chatbot;
 
 import org.nerdboy.chatbot.brain.Brain;
-import org.nerdboy.chatbot.server.HttpServer;
+import org.nerdboy.chatbot.server.QAServer;
 import org.nerdboy.chatbot.utils.DataUtil;
 
 import java.util.Properties;
@@ -11,11 +11,12 @@ import java.util.Properties;
  */
 public class Shour {
     private Brain brain;
-    private HttpServer server;
+    private QAServer server;
 
     public Shour(String property) {
         Properties properties = DataUtil.loadProperty(property);
         initBrain(properties);
+        initServer(properties);
     }
 
     public Shour(Properties properties) {
@@ -30,8 +31,13 @@ public class Shour {
         brain.initHandler(strHandler);
     }
 
-    public void play() {
+    private void initServer(Properties properties) {
+        String port = properties.getProperty("port");
+        server = new QAServer(port);
+    }
 
+    public void serve() {
+        server.start();
     }
 
     public String response(String request) {

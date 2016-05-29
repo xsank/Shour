@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+.topNav{
+    width:100%;
+    height: 100px;
+    background-color: #0f7ddb;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+.content{
+    margin-top: 150px;
+    width: 800px;
+    height: 600px;
+    text-align: center;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.chatbot{
+    float: left;
+}
+
+.dialog{
+    padding-top: 10px;
+    padding-left: 50px;
+    float: left;
+}
+
+.question{
+    padding-top: 30px;
+}
+
+textarea{
+    background-color: whitesmoke;
+}

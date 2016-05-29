@@ -7,7 +7,7 @@ import org.junit.*;
  */
 public class ShourTest {
 
-    public static String property = "Actor.properties";
+    public static String property = "Shour.properties";
     private static Shour shour;
 
     @BeforeClass
