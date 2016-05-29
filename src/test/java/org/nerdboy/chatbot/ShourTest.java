@@ -16,6 +16,11 @@ public class ShourTest {
     }
 
     @Test
+    public void testServe(){
+        shour.serve();
+    }
+
+    @Test
     public void testResponse() {
         System.out.println(shour.response("你好"));
         System.out.println(shour.response("你是谁"));

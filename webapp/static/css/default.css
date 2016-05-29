@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .topNav{
@@ -39,5 +39,5 @@ body{
 }
 
 textarea{
-    background-color: whitesmoke;
+    background-color: white;
 }

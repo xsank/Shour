@@ -19,12 +19,8 @@ public class QAServerTest {
         server=new QAServer();
     }
 
-    @Test
-    public void testStart() throws Exception {
-        server.start();
-    }
 
-    @Test
+    @AfterClass
     public static void testDestroy() throws Exception {
         server.destroy();
     }

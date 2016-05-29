@@ -37,7 +37,7 @@ public class Shour {
     }
 
     public void serve() {
-        server.start();
+        server.start(this);
     }
 
     public String response(String request) {

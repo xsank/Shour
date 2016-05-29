@@ -1,7 +1,9 @@
 package org.nerdboy.chatbot.server;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.nerdboy.chatbot.Shour;
 
 /**
  * Created by xsank.mz on 2016/5/19.
@@ -11,6 +13,7 @@ public class QAServer {
     private static int DEFAUTL_PORT = 8888;
 
     private Server server;
+    private WebAppContext context;
     private boolean isInit = false;
 
     public QAServer(String port) {
@@ -23,14 +26,15 @@ public class QAServer {
     }
 
     private void init() {
-        WebAppContext context = buildContext();
+        context = buildContext();
         server.setHandler(context);
         isInit = true;
     }
 
-    public void start() {
+    public void start(Shour shour) {
         if (isInit) {
             try {
+                context.addServlet(new ServletHolder(new QAServlet(shour)),"/shour");
                 server.start();
                 server.join();
             } catch (Exception e) {
