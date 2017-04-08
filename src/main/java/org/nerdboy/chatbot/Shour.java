@@ -48,4 +48,14 @@ public class Shour {
         this.brain.die();
         this.server.destroy();
     }
+
+    public static void main(String[] args) {
+        final Shour shour = new Shour("Shour.properties");
+        shour.serve();
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                shour.die();
+            }
+        });
+    }
 }

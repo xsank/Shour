@@ -33,7 +33,7 @@ public class Record {
         StringBuilder context = new StringBuilder();
         for (Pair pair : records) {
             context.append(pair.getQuestion());
-            context.append(pair.getAnswer());
+            context.append(pair.getAnswers());
         }
         return context.toString();
     }

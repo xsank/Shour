@@ -12,9 +12,11 @@ import java.util.List;
  */
 public class DataUtilTest {
 
+    private static final String DATA_PATH = "data/common/Knowledge.json";
+
     @Test
     public void testLoadData() throws Exception {
-        DataUtil.loadData("data/common/Knowledge.json", Data.class);
+        DataUtil.loadData(DATA_PATH, Data.class);
     }
 
     @Test
@@ -24,6 +26,6 @@ public class DataUtilTest {
         records.add(new Pair("hi", "hello"));
         records.add(new Pair("haha", "hehe"));
         data.setRecords(records);
-        DataUtil.saveData("data/common/Extra.json", data);
+        DataUtil.saveData(DATA_PATH, data);
     }
 }

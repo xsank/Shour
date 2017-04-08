@@ -28,7 +28,7 @@ public class Memory {
         Data data = DataUtil.loadData(DATA_PATH, Data.class);
         List<Pair> records = data.getRecords();
         for (Pair pair : records) {
-            core.insert(pair.getQuestion(), pair.getAnswer());
+            core.insert(pair.getQuestion(), pair.getAnswers());
         }
         core.preTraverse(core.getRoot(), 0);
     }

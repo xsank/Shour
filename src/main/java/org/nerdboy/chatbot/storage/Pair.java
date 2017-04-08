@@ -6,14 +6,14 @@ package org.nerdboy.chatbot.storage;
 public class Pair {
 
     private String question;
-    private String answer;
+    private String[] answers;
 
     public Pair() {
     }
 
-    public Pair(String question, String answer) {
+    public Pair(String question, String... answers) {
         this.question = question;
-        this.answer = answer;
+        this.answers = answers;
     }
 
     public String getQuestion() {
@@ -24,16 +24,16 @@ public class Pair {
         this.question = question;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String[] getAnswers() {
+        return answers;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setAnswers(String[] answers) {
+        this.answers = answers;
     }
 
     @Override
     public String toString() {
-        return String.format("question:{},answer:{}", this.question, this.answer);
+        return String.format("question:{},answers:{}", this.question, this.answers);
     }
 }

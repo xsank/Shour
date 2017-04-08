@@ -5,30 +5,52 @@ import org.nerdboy.chatbot.nlp.CoreNLP;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by xsank.mz on 2016/5/20.
  */
 public class QATrie {
-    private static final String ANSWER = "answer";
+    private static Random random = new Random();
+
+
+    enum Type {
+        Path,
+        End,
+        Answer
+    }
+
 
     private class TrieNode {
+
         private Map<String, TrieNode> sons;
-        private boolean isFinal;
-        private boolean isAnswer;
+        private Type type;
         private String value;
 
         public TrieNode(String value) {
-            this.value = value;
-            this.isFinal = false;
-            this.isAnswer = false;
-            this.sons = new HashMap<String, TrieNode>();
+            this(value, Type.Path);
         }
 
-        public boolean isAnswer() {
-            return isAnswer;
+        public TrieNode(String value, Type type) {
+            this.value = value;
+            this.type = type;
+            this.sons = new HashMap<>();
+        }
+
+        public boolean hit() {
+            return this.type == Type.End;
+        }
+
+        public String chooseAnswer() {
+            String answer = "";
+            if (hit()) {
+                int index = random.nextInt(sons.size());
+                answer = sons.get(String.valueOf(index)).value;
+            }
+            return answer;
         }
     }
+
 
     private TrieNode root;
 
@@ -40,12 +62,12 @@ public class QATrie {
         return root;
     }
 
-    public void insert(String question, String answer) {
+    public void insert(String question, String... answers) {
         List<String> words = CoreNLP.filterWords(question);
-        insert(words, answer);
+        insert(words, answers);
     }
 
-    public void insert(List<String> words, String answer) {
+    private void insert(List<String> words, String... answers) {
         if (words != null && words.size() >= 0) {
             TrieNode node = root;
             for (String word : words) {
@@ -54,10 +76,11 @@ public class QATrie {
                 }
                 node = node.sons.get(word);
             }
-            node.isFinal = true;
-            node.sons.put(ANSWER, new TrieNode(answer));
-            node = node.sons.get(ANSWER);
-            node.isAnswer = true;
+            node.type = Type.End;
+            int length = answers.length;
+            for (int i = 0; i < length; i++) {
+                node.sons.put(String.valueOf(i), new TrieNode(answers[i], Type.Answer));
+            }
         }
     }
 
@@ -79,8 +102,8 @@ public class QATrie {
                     node = node.sons.get(word);
                 }
             }
-            if (flag && node.isFinal) {
-                result = node.sons.get(ANSWER).value;
+            if (flag && node.hit()) {
+                result = node.chooseAnswer();
             }
         }
         return result;
