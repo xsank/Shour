@@ -41,6 +41,13 @@ public class QATrie {
             return this.type == Type.End;
         }
 
+        public int answerSize() {
+            if (hit()) {
+                return sons.size();
+            }
+            return 0;
+        }
+
         public String chooseAnswer() {
             String answer = "";
             if (hit()) {
@@ -77,8 +84,9 @@ public class QATrie {
                 node = node.sons.get(word);
             }
             node.type = Type.End;
-            int length = answers.length;
-            for (int i = 0; i < length; i++) {
+            int start = node.answerSize();
+            int end = start + answers.length;
+            for (int i = start; i < end; i++) {
                 node.sons.put(String.valueOf(i), new TrieNode(answers[i], Type.Answer));
             }
         }

@@ -17,6 +17,7 @@ public class Center<T extends Ability> {
     private Map<String, T> moduleMap;
     private Map<String, String> clazzMap;
 
+
     public class DefaultMap<K, V> extends HashMap<K, V> {
         private V defaultValue;
 
@@ -52,12 +53,16 @@ public class Center<T extends Ability> {
         return moduleMap.size();
     }
 
+    public void learn(String question, String answer) {
+        memory.memorize(question, answer);
+    }
+
     public String process(List<String> words) {
         String result = memory.search(words);
         if (result.equals("")) {
             String module = "", input = "";
             for (String word : words) {
-                System.out.println(">"+word);
+                System.out.println(">" + word);
                 if (clazzMap.containsKey(word)) {
                     module = classify(word);
                     StringBuilder sb = new StringBuilder();

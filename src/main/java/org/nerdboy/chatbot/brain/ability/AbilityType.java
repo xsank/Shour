@@ -8,4 +8,5 @@ public enum AbilityType {
     Knowledge,
     Datetime,
     Weather,
+    Learn
 }

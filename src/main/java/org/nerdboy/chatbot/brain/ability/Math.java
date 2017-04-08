@@ -6,6 +6,8 @@ package org.nerdboy.chatbot.brain.ability;
 public class Math extends Ability {
     @Override
     public String process(String input) {
+        // TODO
+        // 这里可以用来实现算数运算支持
         return null;
     }
 }

@@ -52,7 +52,8 @@ public class Brain {
         this.handlerChain.addHanlder(handler);
     }
 
-    public void run() {
+    public void learn(String question, String answer) {
+        center.learn(question, answer);
     }
 
     public String response(String request) {

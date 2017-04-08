@@ -41,6 +41,10 @@ public class Memory {
         return core.search(words);
     }
 
+    public void memorize(String question, String answer) {
+        core.insert(question, answer);
+    }
+
     public void add(String req, String res) {
         Pair pair = new Pair(req, res);
         this.record.add(pair);

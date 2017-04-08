@@ -6,6 +6,8 @@ package org.nerdboy.chatbot.brain.ability;
 public class Pedia extends Ability {
     @Override
     public String process(String input) {
+        // TODO
+        // 这里可以用来实现百科查询
         return null;
     }
 }

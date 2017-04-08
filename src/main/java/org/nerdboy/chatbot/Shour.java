@@ -10,8 +10,8 @@ import java.util.Properties;
  * Created by xsank.mz on 2016/5/18.
  */
 public class Shour {
-    private Brain brain;
-    private QAServer server;
+    private static Brain brain;
+    private static QAServer server;
 
     public Shour(String property) {
         Properties properties = DataUtil.loadProperty(property);
@@ -29,6 +29,10 @@ public class Shour {
         String strHandler = properties.getProperty("handler");
         brain.initAbilities(strAbility);
         brain.initHandler(strHandler);
+    }
+
+    public static void learn(String question, String answer) {
+        brain.learn(question, answer);
     }
 
     private void initServer(Properties properties) {
