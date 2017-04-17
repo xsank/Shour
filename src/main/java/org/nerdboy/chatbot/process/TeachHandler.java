@@ -11,7 +11,7 @@ public class TeachHandler implements Handler {
     private static final String ANSWER = "a";
     private static final String SEPERATOR = "=";
     private static final String DEFAULT_SUCCESS_LEARN_ANSWER = "我学会了~";
-    private static final String DEFAULT_FAIL_LEARN_ANSWER = "你教的不对，格式应该是：tearch-shour=q=你好a=你好";
+    private static final String DEFAULT_FAIL_LEARN_ANSWER = "你教的不对，格式应该是：teach-shour=q=你好a=你好";
 
     @Override
     public void process(Request request, Response response, HandlerChain chain) {
