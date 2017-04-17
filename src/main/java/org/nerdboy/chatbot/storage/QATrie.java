@@ -87,7 +87,7 @@ public class QATrie {
             int start = node.answerSize();
             int end = start + answers.length;
             for (int i = start; i < end; i++) {
-                node.sons.put(String.valueOf(i), new TrieNode(answers[i], Type.Answer));
+                node.sons.put(String.valueOf(i), new TrieNode(answers[i-start], Type.Answer));
             }
         }
     }
